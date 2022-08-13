@@ -23,14 +23,33 @@ ALLOWED_HOSTS = env("ALLOWED_HOSTS").split(" ")
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sites",
 ]
+
+SITE_ID = 1
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "django_filters",
+    "django_countries",
+    "phonenumber_field",
+]
+
+LOCAL_APPS = [
+    "apps.common",
+    "apps.users",
+    "apps.profiles",
+    "apps.ratings",
+]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -98,7 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 
