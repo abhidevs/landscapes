@@ -13,6 +13,7 @@ class UserAdmin(BaseUserAdmin):
     model = User
     list_display = [
         "pkid",
+        "id",
         "username",
         "email",
         "first_name",

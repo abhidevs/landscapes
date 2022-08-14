@@ -1,10 +1,15 @@
 from django.conf import settings
-from django.contrib import admin
-from django.urls import path, include
 from django.conf.urls.static import static
+from django.contrib import admin
+from django.urls import include, path
 
 urlpatterns = [
     path("secretpath372/", admin.site.urls),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+
+admin.site.site_header = "Landscapes Admin"
+admin.site.site_title = "Landscapes Admin Dashboard"
+admin.site.index_title = "Welcome to the Landscapes Admin Dashboard"
