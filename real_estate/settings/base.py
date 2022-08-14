@@ -1,10 +1,9 @@
+import logging
+import logging.config
 from pathlib import Path
 
 import environ
-import logging
-import logging.config
 from django.utils.log import DEFAULT_LOGGING
-
 
 env = environ.Env(DEBUG=(bool, False))
 
@@ -131,6 +130,10 @@ MEDIA_ROOT = BASE_DIR / "media"
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# Custom user model
+AUTH_USER_MODEL = "users.User"
 
 
 # Loggers
