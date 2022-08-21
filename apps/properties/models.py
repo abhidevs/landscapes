@@ -6,7 +6,7 @@ from django.contrib.auth import get_user_model
 from django.core.validators import MinValueValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from django_countries import CountryField
+from django_countries.fields import CountryField
 
 from apps.common.models import TimeStampedUUIDModel
 
@@ -154,3 +154,17 @@ class Property(TimeStampedUUIDModel):
         tax_amount = round(tax_percentage * property_price, 2)
         price_after_tax = float(round(property_price + tax_amount, 2))
         return price_after_tax
+
+
+class PropertyView(TimeStampedUUIDModel):
+    viewer_ip = models.CharField(verbose_name=_("Viewer IP address"), max_length=250)
+    property = models.ForeignKey(
+        Property, related_name="property_views", on_delete=models.CASCADE
+    )
+
+    def __str__(self):
+        return f"Total views on {self.property.title} is {self.property.views}"
+
+    class Meta:
+        verbose_name = "Total views on Property"
+        verbose_name_plural = "Total Property Views"
