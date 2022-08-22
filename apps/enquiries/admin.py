@@ -1,3 +1,10 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Enquiry
+
+
+class EnquiryAdmin(admin.ModelAdmin):
+    list_display = ["name", "phone_number", "email", "subject"]
+
+
+admin.site.register(Enquiry, EnquiryAdmin)
