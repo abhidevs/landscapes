@@ -27,7 +27,6 @@ class PropertySerializer(serializers.ModelSerializer):
             "tax",
             "final_property_price",
             "plot_area",
-            "total_floors",
             "number_of_floors",
             "number_of_bedrooms",
             "number_of_bathrooms",
@@ -46,7 +45,7 @@ class PropertySerializer(serializers.ModelSerializer):
         return obj.user.username
 
 
-class PropertyCreateSerializer(serializers.ModelField):
+class PropertyCreateSerializer(serializers.ModelSerializer):
     country = CountryField(name_only=True)
 
     class Meta:

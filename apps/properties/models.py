@@ -148,7 +148,7 @@ class Property(TimeStampedUUIDModel):
         super(Property, self).save(*args, **kwargs)
 
     @property
-    def final_porperty_Price(self):
+    def final_property_price(self):
         tax_percentage = self.tax
         property_price = self.price
         tax_amount = round(tax_percentage * property_price, 2)

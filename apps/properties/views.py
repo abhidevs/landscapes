@@ -28,8 +28,8 @@ class PropertyFilter(django_filters.FilterSet):
         field_name="property_type", lookup_expr="iexact"
     )
     price = django_filters.NumberFilter()
-    price__gt = django_filters.NumberFilter(field="price", lookup_expr="gt")
-    price__lt = django_filters.NumberFilter(field="price", lookup_expr="lt")
+    price__gt = django_filters.NumberFilter(field_name="price", lookup_expr="gt")
+    price__lt = django_filters.NumberFilter(field_name="price", lookup_expr="lt")
 
     class Meta:
         model = Property
